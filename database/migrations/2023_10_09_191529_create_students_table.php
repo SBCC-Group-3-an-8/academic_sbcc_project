@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('sname');
-            $table->string('sprn')->nullable();
+            $table->string('sprn');
             $table->string('sdepart')->nullable();
             $table->string('sclass')->nullable();
             $table->string('sdiv')->nullable();
             $table->string('semail')->nullable();
             $table->string('sroll')->nullable();
+            $table->string('sdob');
             $table->integer('type');
             $table->timestamps();
 

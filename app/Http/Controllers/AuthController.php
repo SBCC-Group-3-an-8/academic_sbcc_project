@@ -27,8 +27,20 @@ class AuthController extends Controller
             return redirect()->intended('home');
         }
 
+        // If authentication fails with email and password, try with sprn and sdob
+        $credentialsStudent = $request->validate([
+            'sprn' => 'required',
+            'sdob' => 'required',
+        ]);
+
+        if (Auth::guard('students')->attempt($credentialsStudent)) {
+            return redirect()->intended('home');
+        }
+
+        // If both attempts fail, redirect back with an error message
         return back()->withErrors(['email' => 'Invalid credentials']);
 
+    
     }
     public function logout(Request $request)
     {
