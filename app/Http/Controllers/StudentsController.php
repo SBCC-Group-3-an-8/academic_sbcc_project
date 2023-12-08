@@ -61,4 +61,11 @@ class StudentsController extends Controller
         return view('Students.view_students', compact('students'));
     }
 
+    public function deleteStudents($id) {
+        // Find the faculty record by ID and delete it
+        Students::find($id)->delete();
+        // You can return a response as needed, such as a JSON response or a redirect
+        return response()->json(['message' => 'Student record deleted']);
+    }
+
 }

@@ -75,6 +75,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('upload-students', [StudentsController::class,'UploadStudents'])->name('upload-students');
 
     Route::get('view-students', [StudentsController::class,'ViewStudents'])->name('view-students');
+
+    Route::delete('students/{id}', [StudentsController::class,'deleteStudents']);
+
     
     // class controller
     Route::get('add-class', [ClassController::class,'create'])->name('add-class');
@@ -101,7 +104,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('teachers/search', [TeacherSController::class, 'search'])->name('teachers.search');
 
     
-    // add students controller
+    // add faculty controller
     Route::get('add-faculty', [FacultyController::class,'AddFaculty'])->name('faculty');
 
     Route::post('upload-faculty', [FacultyController::class,'UploadFaculty'])->name('upload-faculty');

@@ -82,7 +82,6 @@ class FacultyController extends Controller
         Faculty::find($id)->delete();
         // You can return a response as needed, such as a JSON response or a redirect
         return response()->json(['message' => 'Faculty record deleted']);
-    }
-    
+    }    
 
 }
